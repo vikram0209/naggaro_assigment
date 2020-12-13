@@ -8,14 +8,14 @@ public class ResultDto {
 	
 	private List<Statement> stmtList;
 	private int accountId;
-	private Long accountNumber;
+	private String accountNumber;
 	private String accountType;
 	
 	
 	public ResultDto(){}
 
 	public ResultDto(List<Statement> stmtList, int accountId,
-			Long accountNumber, String accountType) {
+			String accountNumber, String accountType) {
 		super();
 		this.stmtList = stmtList;
 		this.accountId = accountId;
@@ -39,11 +39,11 @@ public class ResultDto {
 		this.accountId = accountId;
 	}
 
-	public Long getAccountNumber() {
+	public String getAccountNumber() {
 		return accountNumber;
 	}
 
-	public void setAccountNumber(Long accountNumber) {
+	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
 	}
 

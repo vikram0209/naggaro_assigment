@@ -30,17 +30,17 @@ public class StatementController {
 	
 
 	@RequestMapping("/welcome")
-	public ModelAndView firstPage() {
-		return new ModelAndView("welcome");
+	public ModelAndView firstPage(ModelMap map,HttpServletRequest httpRequest) {
+		
+		map.addAttribute("username",httpRequest.getUserPrincipal().getName());
+		return new ModelAndView("welcome",map);
 	}
 
 
 
-	 @RequestMapping(value="/getAccountStatement", method=RequestMethod.GET)
+	 @RequestMapping(value="/getAccountStatement", method=RequestMethod.POST)
 	    public ModelAndView getAccountStatement(ModelMap map,HttpServletRequest httpRequest,AccountStatementRequest request) {
-		 ResultDto resultDto= accountService.getStatement(request,httpRequest.getUserPrincipal().getName());
-		 //StatementResponse result=new StatementResponse(resultDto);
-	        map.addAttribute("result", accountService.getStatement(request,httpRequest.getUserPrincipal().getName()));
+	        map.addAttribute("result", accountService.getStatement(httpRequest,httpRequest.getUserPrincipal().getName()));
 	        return new ModelAndView("result", map);
 	    }
 	

@@ -1,19 +1,14 @@
 package com.account.model;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
 
 public class Account {
     private int ID;
 	private String accountType;
-	private Long accountNumber;
+	private String accountNumber;
 
 	
 	
-	public Account(int ID,String accountType,Long accountNumber ){
+	public Account(int ID,String accountType,String accountNumber ){
 		this.ID=ID;
 		this.accountType=accountType;
 		this.accountNumber=accountNumber;
@@ -59,7 +54,7 @@ public class Account {
 
 
 
-	public Long getAccountNumber() {
+	public String getAccountNumber() {
 		return accountNumber;
 	}
 
@@ -68,7 +63,7 @@ public class Account {
 
 
 
-	public void setAccountNumber(Long accountNumber) {
+	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
 	}
 

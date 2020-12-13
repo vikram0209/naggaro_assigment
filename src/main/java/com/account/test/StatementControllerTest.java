@@ -2,7 +2,10 @@ package com.account.test;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import junit.framework.Assert;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -16,6 +19,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+
 import com.account.model.AccountStatementRequest;
 import com.account.model.Statement;
 import com.account.service.AccountService;
@@ -34,7 +38,7 @@ public class StatementControllerTest {
 
 	private List<Statement> stmtList;
 	private int accountId;
-	private Long accountNumber;
+	private String accountNumber;
 	private String accountType;
 
 	ResultDto dtoResult = new ResultDto(stmtList, accountId, accountNumber,
@@ -45,7 +49,7 @@ public class StatementControllerTest {
 
 		Mockito.when(
 				accountService.getStatement(
-						Mockito.any(AccountStatementRequest.class),
+						 Mockito.any(HttpServletRequest.class),
 						Mockito.anyString())).thenReturn(dtoResult);
 
 		RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
